@@ -16,7 +16,7 @@ func main() {
 
 	mainWindow := app.NewWindow("HIDER")
 
-	img := canvas.NewImageFromResource(resourceOkSvg)
+	img := canvas.NewImageFromResource(ResOkSvg)
 	img.SetMinSize(fyne.NewSize(40, 40))
 
 	mainWindow.SetContent(container.NewCenter(img))
@@ -29,9 +29,10 @@ func main() {
 	// }
 	// fmt.Println(string(data))
 
-	r := strings.NewReader(string(resourceTestPy.Content()))
+	r := strings.NewReader(string(ResTestPy.Content()))
 
 	cmd := exec.Command("python3", "-")
+	cmd.Dir = "/home/andrey/PROJECTS/hider/ttt"
 	cmd.Stdin = r
 	data, err := cmd.Output()
 
